@@ -1,9 +1,9 @@
 
-' install k8s via acs
-https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough
+# OSS App on K8s on azure
 
-' install deis on ACS - K8s
-https://deis.com/docs/workflow/quickstart/provider/azure-acs/boot/
+First, you will need to deploy an ACS cluster running Kubernetes.  Since we are also going to install Deis Workflow, I am going to suggest we go through the install guide of K8s on Azure on Deis.com. 
+
+Install DEIS Workflow on ACS with Kubernetes - <https://deis.com/docs/workflow/quickstart/provider/azure-acs/boot/>
 
 ' create premium storage account
 https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage
