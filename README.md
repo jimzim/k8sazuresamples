@@ -15,7 +15,7 @@ If you prefer to set up a cluster without DEIS and Helm, you can go here.
 
 Once you are set up, you will want to create a premium storage account using the Azure CLI.  If you prefer to use the portal, make sure to select the premium sku.
 
-```
+```sh
 az storage account create -l <location> -n <account_name> -g <resource_group> --sku Premium_LRS
 ```
 
@@ -99,6 +99,38 @@ helm update
 We are going to use the Helm chart found in the incubator folder found in the charts area of Kubernetes.  This install uses StatefulSets which can be very useful when setting up Database clusters that need to be highly available.
 https://github.com/kubernetes/charts/tree/master/incubator/mongodb-replicaset
 
-If you want more info on StatefulSets, that can be found here.
+Instead of using the default template, we will need to modiby the values.yaml file in the repo to look like this.  Note:  I changed the StorageClass from default to fast.
+
+```yaml
+# Default values for mongodb.
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+# name: value
+
+Name: mongodb-replicaset
+PeerPort: 27017
+Component: "mongodb"
+ReplicaSet: "rs0"
+ClusterRole: "shardsvr"
+Replicas: 3
+Image: "mongo"
+ImageTag: "3.2"
+InstallImage: "gcr.io/google_containers/mongodb-install"
+InstallImageTag: "0.3"
+ImagePullPolicy: "Always"
+Cpu: "100m"
+Memory: "512Mi"
+Storage: "10Gi"
+StorageClass: fast
+```
+
+Then when creating the replicaset, use this command:
+```
+helm install --name my-release -f values.yaml incubator/mongodb-replicaset
+```
+
+As long as you have everything set up correctly with Kubernetes and PVCs, this should work straight away.  It will bring up each of the 3 pods in order and will make sure that there is a Pod always running on each of the 3 VMs.
+
+If you want more info on StatefulSets (new in 1.5), that can be found here.
 https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/
 
