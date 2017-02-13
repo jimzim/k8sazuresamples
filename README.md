@@ -1,5 +1,7 @@
 
-# OSS App on K8s on azure
+# DEIS and MongoDB on K8s on Azure
+
+I wanted to show everyone how to set up an ideal environment for running OSS workloads on Azure.  My favorite stack is the MEAN stack, so i am going to show how to set up an ACS cluster running Kubernetes with both DEIS Workflow and a MongoDB Replicaset installed.
 
 First, you will need to deploy an ACS cluster running Kubernetes.  Since we are also going to install Deis Workflow, I am going to suggest we go through the install guide of K8s on Azure on Deis.com. 
 
@@ -90,9 +92,9 @@ Now that we know we can create a disk, let's create a MongoDB Replicaset.  Make 
 helm update
 ```
 
-' install mongodb replicaset using StatefulSets
+We are going to use the Helm chart found in the incubator folder found in the charts area of Kubernetes.  This install uses StatefulSets which can be very useful when setting up Database clusters that need to be highly available.
 https://github.com/kubernetes/charts/tree/master/incubator/mongodb-replicaset
 
-More on StatefulSets
+If you want more info on StatefulSets, that can be found here.
 https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/
 
