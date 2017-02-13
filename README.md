@@ -1,5 +1,5 @@
 
-# DEIS and MongoDB on K8s on Azure
+# DEIS Workflow and MongoDB Replicaset on K8s on Azure
 
 I wanted to show everyone how to set up an ideal environment for running OSS workloads on Azure.  My favorite stack is the MEAN stack, so i am going to show how to set up an ACS cluster running Kubernetes with both DEIS Workflow and a MongoDB Replicaset installed.
 
