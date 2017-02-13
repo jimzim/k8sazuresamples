@@ -5,11 +5,15 @@ First, you will need to deploy an ACS cluster running Kubernetes.  Since we are 
 
 Install DEIS Workflow on ACS with Kubernetes - <https://deis.com/docs/workflow/quickstart/provider/azure-acs/boot/>
 
-' create premium storage account
-https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage
+If you prefer to set up a cluster without DEIS and Helm, you can go here. - <https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough>
 
+Once you are set up, you will want to create a premium storage account using the Azure CLI.  If you prefer to use the portal, make sure to select the premium sku.
+
+```
 az storage account create -l <location> -n <account_name> -g <resource_group> --sku <account_sku>
+```
 
+Azure Storage CLI Reference - <https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli>
 
 ' make sure vhds container is in storage account - bug
 
