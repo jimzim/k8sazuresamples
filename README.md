@@ -5,9 +5,11 @@ I wanted to show everyone how to set up an ideal environment for running OSS wor
 
 First, you will need to deploy an ACS cluster running Kubernetes.  Since we are also going to install Deis Workflow, I am going to suggest we go through the install guide of K8s on Azure on Deis.com. 
 
-Install DEIS Workflow on ACS with Kubernetes - <https://deis.com/docs/workflow/quickstart/provider/azure-acs/boot/>
+Install DEIS Workflow on ACS with Kubernetes
+<https://deis.com/docs/workflow/quickstart/provider/azure-acs/boot/>
 
-If you prefer to set up a cluster without DEIS and Helm, you can go here. - <https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough>
+If you prefer to set up a cluster without DEIS and Helm, you can go here.
+<https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough>
 
 Once you are set up, you will want to create a premium storage account using the Azure CLI.  If you prefer to use the portal, make sure to select the premium sku.
 
