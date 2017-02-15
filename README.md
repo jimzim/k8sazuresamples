@@ -97,7 +97,10 @@ helm update
 ```
 
 We are going to use the Helm chart found in the incubator folder found in the charts area of Kubernetes.  This install uses StatefulSets which can be very useful when setting up Database clusters that need to be highly available.
-https://github.com/kubernetes/charts/tree/master/incubator/mongodb-replicaset
+
+```
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+```
 
 Instead of using the default template, we will need to modiby the values.yaml file in the repo to look like this.  Note:  I changed the StorageClass from default to fast.
 
@@ -128,11 +131,12 @@ Then when creating the replicaset, use this command:
 ```
 helm install --name my-release -f values.yaml incubator/mongodb-replicaset
 ```
+More details on how to test the cluster and how to debug this configuration are found here: <https://github.com/kubernetes/charts/tree/master/incubator/mongodb-replicaset>
 
 As long as you have everything set up correctly with Kubernetes and PVCs, this should work straight away.  It will bring up each of the 3 pods in order and will make sure that there is a Pod always running on each of the 3 VMs.
 
-If you want more info on StatefulSets (new in 1.5), that can be found here.
-https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/
+More info on StatefulSets (new in 1.5)can be found here:
+<https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/>
 
 Once you have everything up and running, you are probably going to want to see what is inside of your cluster and how much memory and cpu are being used.  There is a very useful Dashboard pod that you can install.  
 ```
