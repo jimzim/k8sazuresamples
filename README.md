@@ -137,6 +137,7 @@ https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/
 Once you have everything up and running, you are probably going to want to see what is inside of your cluster and how much memory and cpu are being used.  There is a very useful Dashboard pod that you can install.  
 ```
 kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+kubectl proxy
 ```
 
 Go here to find instructions on how to set this up and how to access it with a proxy.
